@@ -1,0 +1,7 @@
+{:paths ["script"]
+ :tasks
+ {compile-www (shell "sass scss/www-style.scss css/www-style.css")
+  copy-www (shell (str "cp css/www-style.css css/www-style.css.map /home/uli/projects/sit/www/resources/public/assets/css/"))
+  www (do
+        (run 'compile-www)
+        (run 'copy-www))}}
